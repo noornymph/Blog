@@ -20,4 +20,4 @@ class Post(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return str(self.title)  # Explicitly convert title to string
