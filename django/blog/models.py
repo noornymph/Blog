@@ -1,3 +1,5 @@
+"""This module represents the model of the blog post"""
+
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
@@ -13,6 +15,7 @@ class Post(models.Model):
     published_date = models.DateTimeField(blank=True, null=True)
 
     def publish(self):
+        """This function manages the publishing time and date"""
         self.published_date = timezone.now()
         self.save()
 
