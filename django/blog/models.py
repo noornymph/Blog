@@ -14,7 +14,7 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
-    objects = models.Manager()  # Explicitly define the default manager
+    objects = models.Manager()
 
     def publish(self):
         """This function manages the publishing time and date"""
@@ -22,4 +22,4 @@ class Post(models.Model):
         self.save()
 
     def __str__(self):
-        return str(self.title)  # Explicitly convert title to string
+        return str(self.title)
