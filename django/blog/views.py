@@ -1,4 +1,6 @@
-from django.shortcuts import get_object_or_404, render
+"""This module contains the view of our django app."""
+
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 
 from .forms import PostForm
@@ -6,6 +8,7 @@ from .models import Post
 
 
 def post_list(request):
+    """This view represents the list of the posts."""
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by(
         "published_date"
     )
@@ -13,11 +16,13 @@ def post_list(request):
 
 
 def post_detail(request, pk):
+    """This view represents the post details"""
     post = get_object_or_404(Post, pk=pk)
     return render(request, "blog/post_detail.html", {"post": post})
 
 
 def post_new(request):
+    """This view represents the new post."""
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
