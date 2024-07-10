@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 <article class="post">
-    <aside class="actions">
+    <aside class="aside-btns">
         {% if user.is_authenticated %}
         <a class="btn btn-secondary" href="{% url 'post_edit' pk=post.pk %}">
             {% include './icons/pencil-fill.svg' %}
@@ -14,9 +14,9 @@
             </button>
         </form>
         {% endif %}
-        <form method="POST" action="{% url 'post_remove' pk=post.pk %}" class="inline-form">
+        <form method="POST" action="{% url 'post_remove' pk=post.pk %}" class="inline-form del-form">
             {% csrf_token %}
-            <button type="submit" class="btn btn-secondary" name="delete">
+            <button type="submit" class="btn btn-secondary del-btn" name="delete">
                 {% include './icons/trash.svg' %}
             </button>
         </form>

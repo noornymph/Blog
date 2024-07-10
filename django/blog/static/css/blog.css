@@ -1,3 +1,5 @@
+/* Existing styles */
+
 .page-header {
     background-color: #C25100;
     margin-top: 0;
@@ -69,28 +71,29 @@ h4 {
     background-color: #C25100;
 }
 
-.actions {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Ensures consistent spacing between elements */
+/* Updated styles for actions */
+
+.aside-btns {
+    display: flex; 
+    flex-direction: row;
+    gap: 10px;
+    float:right
 }
 
-.actions form {
-    display: inline-block; /* Ensures forms are treated as inline elements */
+.edit-btn{
+    width: 78px;
 }
 
-.actions .btn {
-    margin: 0; /* Removes default margin from buttons */
-    padding: 0.375rem 0.75rem; /* Adjust padding to match your design */
+.publish-form{
+    width: 78px;
+
 }
 
-.inline-form {
-    display: inline; /* Ensures forms are displayed inline */
-    margin: 0; /* Removes any default margins */
+.del-form{
+    width: 100px;;
 }
 
-.inline-form button {
-    display: inline-flex; /* Ensures buttons and their contents are inline */
-    align-items: center; /* Aligns contents vertically */
-    padding: 0.5rem; /* Adjust padding as needed */
+.del-btn
+{
+    max-width: 100;
 }
