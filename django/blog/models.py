@@ -14,6 +14,8 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
+    objects = models.Manager()  # Explicitly define the default manager
+
     def publish(self):
         """This function manages the publishing time and date"""
         self.published_date = timezone.now()
