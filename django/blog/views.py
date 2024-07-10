@@ -62,3 +62,11 @@ def post_publish(request, pk):
     if request.method == "POST":
         post.publish()
     return redirect("post_detail", pk=pk)
+
+
+def post_remove(request, pk):
+    """This view represents the deletion of the post."""
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        post.delete()
+    return redirect("post_list")

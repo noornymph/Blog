@@ -6,13 +6,18 @@
         <a class="btn btn-secondary" href="{% url 'post_edit' pk=post.pk %}">
             {% include './icons/pencil-fill.svg' %}
         </a>
-        {% endif %}
         {% if not post.published_date %}
-        <form method="POST" action="{% url 'post_publish' pk=post.pk %}"
-            class="post-form">
+        <form method="POST" action="{% url 'post_publish' pk=post.pk %}" class="inline-form">
             {% csrf_token %}
-            <button type="submit" class="btn btn-info" name="publish">
+            <button type="submit" class="btn btn-secondary" name="publish">
                 Publish
+            </button>
+        </form>
+        {% endif %}
+        <form method="POST" action="{% url 'post_remove' pk=post.pk %}" class="inline-form">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-secondary" name="delete">
+                {% include './icons/trash.svg' %}
             </button>
         </form>
         {% endif %}
