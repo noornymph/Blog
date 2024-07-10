@@ -68,3 +68,13 @@ h4 {
     color: #FFFFFF;
     background-color: #C25100;
 }
+
+.actions {
+    display: flex;
+    justify-content: space-between; /* Ensures items are spaced evenly */
+    align-items: center; /* Aligns items vertically */
+}
+
+.actions .btn {
+    margin-right: 10px; /* Adjust spacing between buttons */
+}
