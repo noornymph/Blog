@@ -1,5 +1,6 @@
 """This module contains the view of our django app."""
 
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
@@ -90,3 +91,9 @@ def add_comment_to_post(request, pk):
     else:
         form = CommentForm()
     return render(request, "blog/add_comment_to_post.html", {"form": form})
+
+
+def logout_view(request):
+    """This view deals with logging out"""
+    logout(request)
+    return redirect("post_list")
