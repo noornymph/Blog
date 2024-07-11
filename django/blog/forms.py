@@ -2,11 +2,11 @@
 
 from django import forms
 
-from .models import Post
+from .models import Comment, Post
 
 
 class PostForm(forms.ModelForm):
-    """This class represents the structure of the form."""
+    """This class represents the post form."""
 
     class Meta:
         """This class represents the structure of the post."""
@@ -14,5 +14,18 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = (
             "title",
+            "text",
+        )
+
+
+class CommentForm(forms.ModelForm):
+    """This class represnts the comment form."""
+
+    class Meta:
+        """This class represents the structure of the post."""
+
+        model = Comment
+        fields = (
+            "author",
             "text",
         )
