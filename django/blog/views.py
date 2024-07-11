@@ -1,5 +1,6 @@
 """This module contains the view of our django app."""
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 
@@ -21,6 +22,7 @@ def post_detail(request, pk):
     return render(request, "blog/post_detail.html", {"post": post})
 
 
+@login_required
 def post_new(request):
     """This view represents the creation of the  post."""
     if request.method == "POST":
@@ -35,6 +37,7 @@ def post_new(request):
     return render(request, "blog/post_edit.html", {"form": form})
 
 
+@login_required
 def post_edit(request, pk):
     """This view represents the editing of the post."""
     post = get_object_or_404(Post, pk=pk)
@@ -50,6 +53,7 @@ def post_edit(request, pk):
     return render(request, "blog/post_edit.html", {"form": form})
 
 
+@login_required
 def post_draft_list(request):
     """This view represents the draft of the post."""
     posts = Post.objects.filter(published_date__isnull=True).order_by("created_date")
@@ -64,6 +68,7 @@ def post_publish(request, pk):
     return redirect("post_detail", pk=pk)
 
 
+@login_required
 def post_remove(request, pk):
     """This view represents the deletion of the post."""
     post = get_object_or_404(Post, pk=pk)
