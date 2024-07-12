@@ -47,13 +47,13 @@ h4 {
 }
 
 .post {
-    margin-bottom: 30px;
-    padding: 20px 250px;
+   
+    padding: 10px 250px;
     text-align: justify
 }
 
 .post-list {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     padding: 0px 250px;
     text-align: justify
 }
